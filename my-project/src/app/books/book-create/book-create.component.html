@@ -1,5 +1,4 @@
-<!-- <textarea rows="6">{{newPost}}</textarea> -->
-<textarea rows="6" [value]="newPost"></textarea>
+<textarea rows="6" [value]="newBook" #bookInput></textarea>
 <hr>
-<button (click)="onAddBook()">Save Book</button>
-<p>{{newPost}}</p>
+<button (click)="onAddBook(bookInput)">Save Book</button>
+<p>{{newBook}}</p>
