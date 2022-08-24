@@ -5,9 +5,10 @@ import { Component } from '@angular/core';
   templateUrl: './book-create.component.html',
 })
 export class BookCreateComponent {
+  enteredValue = '';
   newBook = 'NO CONTENT';
-  onAddBook(bookInput: HTMLTextAreaElement) {
+  onAddBook() {
     // console.dir(bookInput);
-    this.newBook = bookInput.value;
+    this.newBook = this.enteredValue;
   }
 }
