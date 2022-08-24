@@ -5,7 +5,8 @@ import { Component } from '@angular/core';
   templateUrl: './book-create.component.html',
 })
 export class BookCreateComponent {
+  newPost = 'NO CONTENT';
   onAddBook() {
-    alert('book added!');
+    this.newPost = 'The user\'s book';
   }
 }
