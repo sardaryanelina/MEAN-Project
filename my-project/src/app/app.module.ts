@@ -6,14 +6,16 @@ import { MatInputModule } from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 import { AppComponent } from './app.component';
 import { BookCreateComponent } from './books/book-create/book-create.component';
 import { HeaderComponent } from './header/header.component';
+import { BookListComponent } from './books/book-list/book-list.component';
 
 
 @NgModule({
-  declarations: [AppComponent, BookCreateComponent, HeaderComponent],
+  declarations: [AppComponent, BookCreateComponent, HeaderComponent, BookListComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -21,7 +23,8 @@ import { HeaderComponent } from './header/header.component';
     MatInputModule,
     MatCardModule,
     MatButtonModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent],
