@@ -1,29 +1,48 @@
 <mat-card>
-  <mat-form-field>
-    <input matInput type="text" [(ngModel)]="enteredTitle" />
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput type="text" [(ngModel)]="enteredAuthor" />
-  </mat-form-field>
-  <mat-form-field>
-    <textarea matInput rows="6" [(ngModel)]="enteredDescription"></textarea>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput type="text" [(ngModel)]="enteredPublisher" />
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput type="date" [(ngModel)]="enteredPublicationDate" />
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput type="number" [(ngModel)]="enteredPageCount" />
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput type="text" [(ngModel)]="enteredLanguage" />
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput type="number" [(ngModel)]="enteredPrice" />
-  </mat-form-field>
-  <button mat-raised-button color="primary" (click)="onAddBook()">
-    Save Book
-  </button>
+  <form (submit)="onAddBook(bookForm)" #bookForm="ngForm">
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="title"
+        ngModel
+        required
+        minlength="2"
+        #title="ngModel"
+      />
+      <mat-error *ngIf="title.invalid">Please, enter a book title</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="author"
+        ngModel
+        required
+        minlength="2"
+        #author="ngModel"
+        />
+        <mat-error *ngIf="author.invalid">Please, enter a book author</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matInput rows="4" name="description" ngModel></textarea>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" name="publisher" ngModel />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="date" name="publishedDate" ngModel />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="number" name="pageCount" ngModel />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" name="language" ngModel />
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="number" name="price" ngModel required min="0" #price="ngModel" />
+      <mat-error *ngIf="price.invalid">Please, enter a book price</mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Save Book</button>
+  </form>
 </mat-card>
