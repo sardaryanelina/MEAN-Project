@@ -10,7 +10,7 @@ export class BookCreateComponent {
   enteredAuthor = '';
   enteredDescription = '';
   enteredPublisher = '';
-  enteredPublicationDate = '';
+  enteredPublicationDate = new Date();
   enteredPageCount = 0;
   enteredLanguage = '';
   enteredPrice = 0;
@@ -22,7 +22,7 @@ export class BookCreateComponent {
       author: this.enteredAuthor,
       description: this.enteredDescription,
       publisher: this.enteredPublisher,
-      publishedDate: this.enteredPublicationDate,
+      publishedDate: this.enteredPublicationDate.getDate,
       pageCount: this.enteredPageCount,
       language: this.enteredLanguage,
       price: this.enteredPrice,
