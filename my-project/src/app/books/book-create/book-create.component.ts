@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { Book } from '../book.model';
 
 @Component({
   selector: 'app-book-create',
@@ -14,15 +15,15 @@ export class BookCreateComponent {
   enteredPageCount = 0;
   enteredLanguage = '';
   enteredPrice = 0;
-  @Output() bookCreated = new EventEmitter();
+  @Output() bookCreated = new EventEmitter<Book>();
 
   onAddBook() {
-    const book = {
+    const book: Book = {
       title: this.enteredTitle,
       author: this.enteredAuthor,
       description: this.enteredDescription,
       publisher: this.enteredPublisher,
-      publishedDate: this.enteredPublicationDate.getDate,
+      publishedDate: this.enteredPublicationDate,
       pageCount: this.enteredPageCount,
       language: this.enteredLanguage,
       price: this.enteredPrice,
