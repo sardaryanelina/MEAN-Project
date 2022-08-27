@@ -1,7 +1,29 @@
 <mat-card>
   <mat-form-field>
-    <textarea matInput rows="6" [(ngModel)]="enteredValue"></textarea>
+    <input matInput type="text" [(ngModel)]="enteredTitle" />
   </mat-form-field>
-  <button mat-raised-button color="primary" (click)="onAddBook()">Save Book</button>
+  <mat-form-field>
+    <input matInput type="text" [(ngModel)]="enteredAuthor" />
+  </mat-form-field>
+  <mat-form-field>
+    <textarea matInput rows="6" [(ngModel)]="enteredDescription"></textarea>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="text" [(ngModel)]="enteredPublisher" />
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="date" [(ngModel)]="enteredPublicationDate" />
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="number" [(ngModel)]="enteredPageCount" />
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="text" [(ngModel)]="enteredLanguage" />
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="number" [(ngModel)]="enteredPrice" />
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="onAddBook()">
+    Save Book
+  </button>
 </mat-card>
-

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-book-create',
@@ -6,10 +6,27 @@ import { Component } from '@angular/core';
   styleUrls: ['./book-create.component.css'],
 })
 export class BookCreateComponent {
-  enteredValue = '';
-  newBook = 'NO CONTENT';
+  enteredTitle = '';
+  enteredAuthor = '';
+  enteredDescription = '';
+  enteredPublisher = '';
+  enteredPublicationDate = '';
+  enteredPageCount = 0;
+  enteredLanguage = '';
+  enteredPrice = 0;
+  @Output() bookCreated = new EventEmitter();
+
   onAddBook() {
-    // console.dir(bookInput);
-    this.newBook = this.enteredValue;
+    const book = {
+      title: this.enteredTitle,
+      author: this.enteredAuthor,
+      description: this.enteredDescription,
+      publisher: this.enteredPublisher,
+      publishedDate: this.enteredPublicationDate,
+      pageCount: this.enteredPageCount,
+      language: this.enteredLanguage,
+      price: this.enteredPrice,
+    };
+    this.bookCreated.emit(book);
   }
 }
