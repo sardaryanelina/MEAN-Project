@@ -76,7 +76,9 @@ export class BooksService {
     this.http
       .delete('http://localhost:3000/api/books/' + bookId)
       .subscribe(() => {
-        console.log('Deleted!');
+        const updatedBooks = this.books.filter((book) => book.id !== bookId);
+        this.books = updatedBooks;
+        this.booksUpdated.next([...this.books]);
       });
   }
 }
