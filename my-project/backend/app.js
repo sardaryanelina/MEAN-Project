@@ -24,7 +24,7 @@ app.post("/api/books", (req, res, next) => {
   });
 });
 
-app.use('/api/books', (req, res, next) => {
+app.get('/api/books', (req, res, next) => {
   const books = [
     {
       id: '111testId12345678',

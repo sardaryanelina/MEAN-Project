@@ -47,7 +47,12 @@ export class BooksService {
       language: language,
       price: price,
     };
-    this.books.push(book);
-    this.booksUpdated.next([...this.books]);
+    this.http
+      .post<{ message: string }>('http://localhost:3000/api/books', book)
+      .subscribe((responseData) => {
+        console.log(responseData.message);
+        this.books.push(book);
+        this.booksUpdated.next([...this.books]);
+      });
   }
 }
