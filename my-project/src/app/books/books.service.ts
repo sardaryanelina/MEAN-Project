@@ -71,4 +71,12 @@ export class BooksService {
         this.booksUpdated.next([...this.books]);
       });
   }
+
+  deleteBook(bookId: string) {
+    this.http
+      .delete('http://localhost:3000/api/books/' + bookId)
+      .subscribe(() => {
+        console.log('Deleted!');
+      });
+  }
 }

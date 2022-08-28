@@ -55,4 +55,13 @@ app.get('/api/books', (req, res, next) => {
     });
 });
 
+app.delete('/api/books/:id', (req, res, next) => {
+  Book.deleteOne({ _id: req.params.id }).then(result => {
+    console.log(result);
+    res.status(201).json({
+      message: 'Book deleted!'
+    });
+  });
+});
+
 module.exports = app;
