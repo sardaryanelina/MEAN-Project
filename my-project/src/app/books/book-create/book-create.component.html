@@ -8,6 +8,7 @@
         ngModel
         required
         minlength="2"
+        placeholder="Book Title"
         #title="ngModel"
       />
       <mat-error *ngIf="title.invalid">Please, enter a book title</mat-error>
@@ -20,27 +21,28 @@
         ngModel
         required
         minlength="2"
+        placeholder="Book Author"
         #author="ngModel"
         />
         <mat-error *ngIf="author.invalid">Please, enter a book author</mat-error>
     </mat-form-field>
     <mat-form-field>
-      <textarea matInput rows="4" name="description" ngModel></textarea>
+      <textarea matInput rows="4" name="description" ngModel placeholder="Book Description"></textarea>
     </mat-form-field>
     <mat-form-field>
-      <input matInput type="text" name="publisher" ngModel />
+      <input matInput type="text" name="publisher" ngModel placeholder="Book Bublisher"/>
     </mat-form-field>
     <mat-form-field>
-      <input matInput type="date" name="publishedDate" ngModel />
+      <input matInput type="date" name="publishedDate" ngModel placeholder="Publication Date"/>
     </mat-form-field>
     <mat-form-field>
-      <input matInput type="number" name="pageCount" ngModel />
+      <input matInput type="number" name="pageCount" ngModel placeholder="Page Number"/>
     </mat-form-field>
     <mat-form-field>
-      <input matInput type="text" name="language" ngModel />
+      <input matInput type="text" name="language" ngModel placeholder="Language"/>
     </mat-form-field>
     <mat-form-field>
-      <input matInput type="number" name="price" ngModel required min="0" #price="ngModel" />
+      <input matInput type="number" name="price" ngModel required min="0" placeholder="Book Price" #price="ngModel" />
       <mat-error *ngIf="price.invalid">Please, enter a book price</mat-error>
     </mat-form-field>
     <button mat-raised-button color="primary" type="submit">Save Book</button>

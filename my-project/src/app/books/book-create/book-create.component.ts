@@ -24,16 +24,6 @@ export class BookCreateComponent {
     if (form.invalid) {
       return;
     }
-    // const book: Book = {
-    //   title: form.value.title,
-    //   author: form.value.author,
-    //   description: form.value.description,
-    //   publisher: form.value.publisher,
-    //   publishedDate: form.value.publishedDate,
-    //   pageCount: form.value.pageCount,
-    //   language: form.value.language,
-    //   price: form.value.price,
-    // };
     this.booksService.addBook(
       form.value.title,
       form.value.author,
@@ -44,5 +34,6 @@ export class BookCreateComponent {
       form.value.language,
       form.value.price
     );
+    form.resetForm();
   }
 }

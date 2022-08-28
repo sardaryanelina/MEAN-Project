@@ -3,6 +3,10 @@
     <mat-expansion-panel-header> {{ book.title }} </mat-expansion-panel-header>
     <p>{{ book.author }}</p>
     <p>{{ book.price }} $</p>
+    <mat-action-row>
+      <button mat-button color="accent">EDIT</button>
+      <button mat-button color="warn">DELETE</button>
+    </mat-action-row>
   </mat-expansion-panel>
 </mat-accordion>
 <p class="info-text mat-body-1" *ngIf="books.length <= 0">No books added yet</p>
