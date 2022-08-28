@@ -6,7 +6,7 @@ export class BooksService {
   private books: Book[] = [];
 
   getBooks() {
-    return [...this.books];
+    return this.books;
   }
 
   addBook(

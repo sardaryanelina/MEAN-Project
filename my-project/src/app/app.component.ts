@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Book } from './books/book.model';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +6,5 @@ import { Book } from './books/book.model';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  storedBooks: Book[] = [];
-  onBookAdded(book) {
-    this.storedBooks.push(book);
-  }
+
 }
