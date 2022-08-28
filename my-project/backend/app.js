@@ -38,10 +38,11 @@ app.post("/api/books", (req, res, next) => {
     language: req.body.language,
     price: req.body.price
   });
-  book.save();
-  console.log(book);
-  res.status(201).json({
-    message: 'Book added successfully'
+  book.save().then(createdBook => {
+    res.status(201).json({
+      message: 'Book added successfully',
+      bookId: createdBook.id
+    });
   });
 });
 

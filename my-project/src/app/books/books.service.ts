@@ -64,8 +64,13 @@ export class BooksService {
       price: price,
     };
     this.http
-      .post<{ message: string }>('http://localhost:3000/api/books', book)
+      .post<{ message: string; bookId: string }>(
+        'http://localhost:3000/api/books',
+        book
+      )
       .subscribe((responseData) => {
+        const id = responseData.bookId;
+        book.id = id;
         console.log(responseData.message);
         this.books.push(book);
         this.booksUpdated.next([...this.books]);
