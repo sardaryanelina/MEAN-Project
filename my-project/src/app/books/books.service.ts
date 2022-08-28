@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Subject } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { Book } from './book.model';
 
@@ -13,11 +14,26 @@ export class BooksService {
 
   getBooks() {
     this.http
-      .get<{ message: string; books: Book[] }>(
-        'http://localhost:3000/api/books'
+      .get<{ message: string; books: any }>('http://localhost:3000/api/books')
+      .pipe(
+        map((bookData) => {
+          return bookData.books.map((book) => {
+            return {
+              title: book.title,
+              author: book.author,
+              description: book.description,
+              publisher: book.publisher,
+              publishedDate: book.publishedDate,
+              pageCount: book.pageCount,
+              language: book.language,
+              price: book.price,
+              id: book._id,
+            };
+          });
+        })
       )
-      .subscribe((bookData) => {
-        this.books = bookData.books;
+      .subscribe((transformedBooks) => {
+        this.books = transformedBooks;
         this.booksUpdated.next([...this.books]);
       });
   }
