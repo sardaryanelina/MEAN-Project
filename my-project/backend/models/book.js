@@ -10,3 +10,5 @@ const bookSchema = mongoose.Schema({
   language: String,
   price: { type: Number, required: true }
 });
+
+module.exports = mongoose.model('Book', bookSchema);

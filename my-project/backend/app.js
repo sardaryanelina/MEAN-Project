@@ -1,6 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
+const Book = require('./models/book');
+
 const app = express();
 
 app.use(bodyParser.json());
@@ -17,7 +19,17 @@ app.use((req, res, next) => {
 });
 
 app.post("/api/books", (req, res, next) => {
-  const book = req.body;
+  const book = new Book({
+    title: req.body.title,
+    author: req.body.author,
+    description: req.body.description,
+    publisher: req.body.publisher,
+    publishedDate: req.body.publishedDate,
+    pageCount: req.body.pageCount,
+    language: req.body.language,
+    price: req.body.price
+
+  });
   console.log(book);
   res.status(201).json({
     message: 'Book added successfully'
