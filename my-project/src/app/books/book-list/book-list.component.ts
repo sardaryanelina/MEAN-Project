@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Book } from '../book.model';
+import { BooksService } from '../books.service';
 
 @Component({
   selector: './app-book-list',
@@ -8,4 +9,6 @@ import { Book } from '../book.model';
 })
 export class BookListComponent {
   @Input() books: Book[] = [];
+
+  constructor(public booksService: BooksService) {}
 }
