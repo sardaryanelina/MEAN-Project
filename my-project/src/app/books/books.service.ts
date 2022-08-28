@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 import { Book } from './book.model';
 
@@ -8,8 +9,17 @@ export class BooksService {
   private books: Book[] = [];
   private booksUpdated = new Subject<Book[]>();
 
+  constructor(private http: HttpClient) {}
+
   getBooks() {
-    return [...this.books];
+    this.http
+      .get<{ message: string; books: Book[] }>(
+        'http://localhost:3000/api/books'
+      )
+      .subscribe((bookData) => {
+        this.books = bookData.books;
+        this.booksUpdated.next([...this.books]);
+      });
   }
 
   getBookUpdatListener() {
@@ -27,6 +37,7 @@ export class BooksService {
     price: number
   ) {
     const book: Book = {
+      id: null,
       title: title,
       author: author,
       description: description,

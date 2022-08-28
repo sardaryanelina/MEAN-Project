@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 
 app.use('/api/books', (req, res, next) => {
-  const posts = [
+  const books = [
     {
       id: '111testId12345678',
       title: 'First title',
@@ -28,8 +28,8 @@ app.use('/api/books', (req, res, next) => {
     }
   ];
   res.status(200).json({
-    message: 'Posts fetched successfully',
-    posts: posts
+    message: 'Books fetched successfully',
+    books: books
   });
 });
 
