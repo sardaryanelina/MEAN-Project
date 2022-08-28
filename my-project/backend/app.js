@@ -1,6 +1,10 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 
 const app = express();
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));//we do not need for this app
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -10,6 +14,14 @@ app.use((req, res, next) => {
     "GET, POST, PATCH, DELETE, OPTIONS"
   );
   next();
+});
+
+app.post("/api/books", (req, res, next) => {
+  const book = req.body;
+  console.log(book);
+  res.status(201).json({
+    message: 'Book added successfully'
+  });
 });
 
 app.use('/api/books', (req, res, next) => {
