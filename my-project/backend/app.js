@@ -6,7 +6,7 @@ const Book = require('./models/book');
 
 const app = express();
 
-mongoose.connect("mongodb+srv://TeamProject:database@bookstore.2kfo5.mongodb.net/?retryWrites=true&w=majority")
+mongoose.connect("mongodb+srv://TeamProject:database@bookstore.2kfo5.mongodb.net/node-angular?retryWrites=true&w=majority")
   .then(() => {
     console.log('Connected to database!');
   })
@@ -37,8 +37,8 @@ app.post("/api/books", (req, res, next) => {
     pageCount: req.body.pageCount,
     language: req.body.language,
     price: req.body.price
-
   });
+  book.save();
   console.log(book);
   res.status(201).json({
     message: 'Book added successfully'
